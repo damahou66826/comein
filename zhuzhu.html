@@ -1,0 +1,206 @@
+<html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>学生进出学校核验</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" href="./fx_files/weui.css">
+    <link rel="stylesheet" href="./fx_files/weuix.css">
+    <link href="./fx_files/layui.css" rel="stylesheet">
+    <script src="./fx_files/zepto.min.js"></script>
+    <script src="./fx_files/qrcode.js"></script>
+<script type="text/javascript">
+    //得到时间并写入div
+    function getDate(){
+        //获取当前时间
+        var date = new Date();
+        //格式化为本地时间格式
+        var date1 = date.toLocaleString();
+        //获取div
+        var div1 = document.getElementById("times");
+        //将时间写入div
+        div1.innerHTML = date1;
+    }
+    //使用定时器每秒向div写入当前时间
+    setInterval("getDate()",1000);
+</script>
+<style type="text/css">
+        .whiteFont {
+            color: white;
+        }
+
+        .yellow_bg {
+            background-color: #CDCD00
+        }
+
+        .green_bg {
+            background-color: #00FF00
+        }
+
+        .red_bg {
+            background-color: #FF0000
+        }
+
+        body {
+            background: url("cssjs/imgs/bg.jpg") repeat;
+            background-size: 100%;
+        }
+
+        .cl0 {
+            z-index: 9999;
+            background: url("cssjs/imgs/3_01.jpg") no-repeat;
+            background-size: 100%;
+        }
+
+        .cl1 {
+            z-index: 9999;
+            margin-top: -20px;
+            background: url("cssjs/imgs/3_02.jpg") no-repeat;
+            background-size: 100%;
+        }
+
+        .cl2 {
+            z-index: 9999;
+            text-align: center;
+            background: url("cssjs/imgs/3_03.jpg") no-repeat;
+            background-size: 100%;
+        }
+
+        .cl3 {
+            height: 200px;
+            margin-top: -40px;
+            background: url("cssjs/imgs/3_04.jpg") repeat;
+            background-size: 100%;
+        }
+
+        .cl4 {
+            background: url("cssjs/imgs/3_05.jpg") no-repeat;
+            background-size: 100%;
+        }
+
+        .cl5 {
+            background: url("cssjs/imgs/3_06.jpg") no-repeat;
+            background-size: 100%;
+        }
+
+        .cl6_yellow {
+            height: 40px;
+            background: url("cssjs/imgs/3_07_y.jpg") no-repeat;
+            background-size: 100%;
+        }
+
+        .cl6_red {
+            height: 40px;
+            background: url("cssjs/imgs/1_07.jpg") no-repeat;
+            background-size: 100%;
+        }
+
+        .cl6_green {
+            height: 40px;
+            background: url("cssjs/imgs/2_07.jpg") no-repeat;
+            background-size: 100%;
+        }
+
+        .cl6_grey {
+            height: 40px;
+            background: url("cssjs/imgs/grey.png") no-repeat;
+            background-size: 100%;
+        }
+
+        .cl6_purple {
+            height: 40px;
+            background: url("cssjs/imgs/purple.png") no-repeat;
+            background-size: 100%;
+        }
+
+        .cl7 {
+            background: url("cssjs/imgs/3_08.jpg") no-repeat;
+            background-size: 100%;
+        }
+
+        .cl8 {
+            height: 60px;
+            background: url("cssjs/imgs/3_10_1.png") no-repeat;
+            background-size: 100%;
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <div class="page-hd cl0" id="test01"></div>
+    <div class="page-hd cl1" id="test02">
+    </div>
+    <div class="page-hd cl2" id="test03">
+        <p style="font-size: 30px; font-family: STHeiti; font-weight: bold;" align="center">张柱健</p>
+    </div>
+    <div class="page-hd cl3" style=" text-align: center;float:none;">
+        <p style="font-size: 20px; text-align:center;">202134261120</p>
+        <p style="font-size: 16px; text-align:center;">信息科学技术学院</p>
+        <p style="font-size: 16px; text-align:center;">
+        </p>
+        <div id="qr" class="tcenter" style="padding: 10px;height:170px;">
+            <!-- <img width="110px" height="160px" src="./cssjs/tx/2022/zhuzhu.jpg"> -->
+                        
+        </div>
+
+        <p style="font-size: 16px; text-align:center;">
+        </p>
+        <p style="font-size: 16px; font-weight: 200;" align="center"></p>
+    </div>
+    <div class="page-hd cl4" id="test04"><p style="font-size: 20px; font-weight:bold;" align="center"><span id="times">2022/4/14 10:03:33</span></p></div>
+    <div class="page-hd cl5" id="test05">
+    </div>
+
+
+    <div id="cDIV">
+        <!-- <div id="colorDIV" class="page-hd cl6 cl6_purple" permit="purple">        
+            <p style=" color:#fff;   font-size: 25px;  font-weight: 200;" align="center">已经请假离校</p>
+        </div> -->
+    </div>
+    
+        
+
+    <div class="page-hd cl7" id="test07"></div>
+    <div class="page-hd cl8" id="test08"></div>
+
+    <script>
+        //设置延迟加载
+        var html="<img width='110px' height='160px' src='./cssjs/tx/2022/zhuzhu.jpg'>";
+        setTimeout("document.getElementById('qr').innerHTML=html",2000);//延时3秒
+        var html1="<p style=' color:#fff;   font-size: 25px;  font-weight: 200;' align='center'>已经请假离校</p>"
+         function chu(){
+            document.getElementById('cDIV').innerHTML="<div id='colorDIV' class='page-hd cl6 cl6_purple' permit='purple'> </div>"
+            setTimeout("document.getElementById('colorDIV').innerHTML=html1",2000)
+         }
+
+        setTimeout("chu()",1000)
+
+        /*
+         let lst=["test01","test02","test03","test04","test05","colorDIV","test07","test08",]
+         function hide(id){
+            $(id).hide()
+         }
+         function show(id){
+            $(id).show()
+            console.log(index)
+         }
+         function noway(){
+             console.log("正在加载....")
+         }
+         先隐藏掉
+         for(let i=0;i<lst.length;i++){
+             console.log("正在隐藏")
+             console.log(lst[i])
+             hide(lst[i])
+        }
+        慢慢显示
+        let index=0;
+         for(let i=0;i<lst.length;i++){
+             setTimeout("show(lst[index++])",1000)
+         }
+        */
+    </script>
+            
+
+  
+ </body></html>
